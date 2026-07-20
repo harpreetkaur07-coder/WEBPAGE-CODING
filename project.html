@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Legacy Foundation | NGO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f4f8f5;
+      --bg-soft:#ffffff;
+      --surface:#ffffff;
+      --surface-2:#edf5ef;
+      --text:#1f2d26;
+      --muted:#607067;
+      --green:#2f7d5b;
+      --green-2:#69b98c;
+      --border:rgba(47,125,91,.14);
+      --shadow:0 14px 40px rgba(24,44,34,.08);
+      --radius:22px;
+      --max:1180px;
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+
+    html{scroll-behavior:smooth}
+
+    body{
+      background:
+        radial-gradient(circle at top, rgba(47,125,91,.08), transparent 28%),
+        linear-gradient(180deg, #f8fcf9 0%, #eef5ef 100%);
+      color:var(--text);
+      line-height:1.7;
+    }
+
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+    section{padding:92px 20px}
+    .container{max-width:var(--max);margin:0 auto}
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:999;
+      backdrop-filter:blur(16px);
+      background:rgba(248,252,249,.82);
+      border-bottom:1px solid rgba(47,125,91,.12);
+    }
+
+    .header-inner{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:18px 20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .logo{
+      font-size:1.3rem;
+      font-weight:800;
+      letter-spacing:2px;
+      color:var(--green);
+      text-transform:uppercase;
+    }
+
+    nav{
+      display:flex;
+      gap:24px;
+      flex-wrap:wrap;
+    }
+
+    nav a{
+      color:var(--text);
+      font-weight:500;
+      position:relative;
+      transition:.25s ease;
+    }
+
+    nav a:hover{color:var(--green)}
+    nav a::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-6px;
+      width:0;
+      height:2px;
+      background:var(--green);
+      transition:.25s ease;
+    }
+    nav a:hover::after{width:100%}
+
+    .hero{
+      min-height:100vh;
+      display:grid;
+      place-items:center;
+      text-align:center;
+      padding:120px 20px 90px;
+      background:
+        linear-gradient(rgba(8,15,11,.42), rgba(8,15,11,.52)),
+        url("https://user-gen-media-assets.s3.amazonaws.com/seedream_images/179fce71-702d-425e-b714-44693aec51c2.png?AWSAccessKeyId=ASIA2F3EMEYERLQCIIQ6&Signature=B%2FbtE5zR76FU7nJGma0CLxstm6I%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEMr%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJIMEYCIQDhUN%2B7QVDuaseEC0FfebjDcVXUz241UiY1O%2FjUtJLB0AIhAMu%2FHZGipqATg%2Fbq6sKv5zFLKRzS2iweEq0V1fKX3h7CKvwECJL%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQARoMNjk5NzUzMzA5NzA1IgyQawVGVB0OeNgX6%2Bgq0AStRQylo2fYYiVaRY891%2FOBgDgsRGG4hSQzz4DkdtSJ0VX9zTNzdwUGTiYntmxTU0X3r11mdcMDeyMyML0txCynTAXrZrSy6dTVgYWtdPMy4%2B%2BIZQWKrQD3%2Fm5wwhTdp0se1Mq5KLIvDiwEWDjFqZQFgEhzyMzDsJ4tgZujjj4KshHrfNNW%2FKqxUkb2XjgkmZF7WiRaV3S3w7SvOOHk1xlbKWcm0CIrNhKEUexKwlBFzu7Q0oJ6EMcXzEnATFzqj3E9oR5OSdUXuh2uUNJpPA3Q%2FRLtM3ZkdrcdUHiUp6FlYyAUAYwQ2GdSve5b7RxvBF%2FOrEwgKHSQoi6OZvbX%2FgufACarW3myqeFzcilyxz3igo01EnAzo7%2B7BAs5OECpGxgs6V0pZ9yoce9OQl%2FRnOG%2B2ZDxSEGZ8GPTCrB2KSoMFZ3xy1haaywFiTClMrumnqPvG48KslW1M9Z56ilabZQKCd8rZd9jGWaAAhiWtuWOZJwgm0GVkS376%2FpDzHyHDbbdML6skCrNwCZv4JtmpEePzGx4jQ7t5g%2BnNVLx2CGFCV93iN1NGBIv7NRFvKeZWFpaOcb5IROqvQLoENQZUo48FZ84znI16POM4Nb8BNjajKsfAdSSVhnzSgNzJUTIfBGvRyO4EoTCXYnarSoNiES5IaPfwzcbRkKBnm%2FqVzZnYc7CybY4yA%2B0joBHomwyVpam16Tfk8K9KyLCVL%2BsvM6LJ8HdqiKK4eHW7zOFKNK%2BK0%2FX%2FoJpXjLBfHZwAYWRmmxJdQGJROW9MICP9NIGOpcBXRaRlfb1ysNB5U0MEqzEnKeo23ljfX%2FCRo2%2F2fe3Yxt3Va6%2FNAkGvZwhnpONdZ0wCgzGY9lgN8PLZNj94xvtY11%2F%2BYZG55LPy9seso%2FdpV3eMdAE7Iu7uBPAgGrrIy4JUN2QV%2BTuxj0jSSmottiKXnwm5rxGTPowICzKrQISNvVGasP6GgMNdecX55fXXPcBLMxa9UruaQ%3D%3D&Expires=1784485203")
+        center/cover no-repeat;
+    }
+
+    .hero-content{
+      max-width:840px;
+      padding:44px 28px;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:28px;
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(10px);
+    }
+
+    .hero h1{
+      font-size:clamp(2.5rem, 6vw, 5rem);
+      line-height:1.05;
+      color:#fff;
+      margin-bottom:18px;
+    }
+
+    .hero p{
+      font-size:clamp(1rem, 2vw, 1.2rem);
+      color:#eef6ef;
+      max-width:680px;
+      margin:0 auto 28px;
+    }
+
+    .btn, .gold-btn, .contact-form button, .newsletter button{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border:none;
+      border-radius:999px;
+      padding:14px 28px;
+      font-weight:700;
+      cursor:pointer;
+      transition:.25s ease;
+    }
+
+    .btn, .gold-btn, .contact-form button{
+      background:linear-gradient(135deg, var(--green), var(--green-2));
+      color:#fff;
+      box-shadow:0 10px 24px rgba(47,125,91,.18);
+    }
+
+    .btn:hover, .gold-btn:hover, .contact-form button:hover{
+      transform:translateY(-2px);
+    }
+
+    .section-title{
+      text-align:center;
+      font-size:clamp(1.9rem, 3.2vw, 3rem);
+      color:var(--green);
+      margin-bottom:20px;
+      position:relative;
+    }
+
+    .section-title::after{
+      content:"";
+      display:block;
+      width:84px;
+      height:3px;
+      margin:14px auto 0;
+      border-radius:999px;
+      background:linear-gradient(90deg, transparent, var(--green), transparent);
+    }
+
+    .section-lead{
+      max-width:760px;
+      margin:0 auto 42px;
+      text-align:center;
+      color:var(--muted);
+      font-size:1.02rem;
+    }
+
+    .content-grid,
+    .program-container,
+    .impact-container,
+    .donation-cards,
+    .volunteer-box,
+    .testimonial-box,
+    .promise,
+    .footer-content{
+      display:grid;
+      gap:24px;
+    }
+
+    .content-grid,
+    .program-container,
+    .donation-cards{
+      grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .card, .program-card, .timeline article, .contact-info, .contact-form, .impact-box, .testimonial-box article, .promise div{
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+
+    .card{
+      padding:28px;
+      transition:.28s ease;
+    }
+
+    .card:hover, .program-card:hover{
+      transform:translateY(-6px);
+    }
+
+    .card h3, .program-card h3, .contact-info h3{
+      color:var(--green);
+      margin-bottom:12px;
+    }
+
+    .card p, .card li, .program-card p, .program-card li, .contact-info p, .timeline p, .testimonial-box p, .promise p{
+      color:var(--muted);
+    }
+
+    .program-card{
+      padding:30px;
+      transition:.28s ease;
+      background:linear-gradient(180deg, #ffffff, #f8fcf9);
+    }
+
+    .icon{font-size:2.2rem;margin-bottom:16px}
+    .program-card ul{margin-top:14px;padding-left:18px}
+    .program-card li{margin:8px 0}
+
+    .impact{
+      background:linear-gradient(135deg, rgba(47,125,91,.12), rgba(105,185,140,.08));
+    }
+
+    .impact-container{
+      grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));
+      max-width:var(--max);
+      margin:0 auto;
+    }
+
+    .impact-box{
+      text-align:center;
+      padding:28px 18px;
+    }
+
+    .impact-box h1{
+      font-size:clamp(2rem, 4vw, 3rem);
+      color:var(--green);
+      margin-bottom:6px;
+    }
+
+    .timeline{
+      max-width:780px;
+      margin:0 auto;
+      border-left:2px solid rgba(47,125,91,.35);
+      padding-left:28px;
+    }
+
+    .timeline article{
+      padding:24px;
+      margin:22px 0;
+    }
+
+    .timeline span{color:var(--green);font-weight:700}
+
+    .contact-container{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+      gap:28px;
+      align-items:start;
+      max-width:var(--max);
+      margin:0 auto;
+    }
+
+    .contact-info, .contact-form{
+      padding:30px;
+    }
+
+    .contact-form label{
+      display:block;
+      margin:14px 0 8px;
+      font-weight:500;
+    }
+
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea{
+      width:100%;
+      padding:14px 16px;
+      border-radius:14px;
+      border:1px solid rgba(47,125,91,.2);
+      background:#fff;
+      color:var(--text);
+      outline:none;
+    }
+
+    .contact-form input:focus,
+    .contact-form select:focus,
+    .contact-form textarea:focus{
+      border-color:rgba(47,125,91,.7);
+      box-shadow:0 0 0 4px rgba(47,125,91,.12);
+    }
+
+    .newsletter{
+      text-align:center;
+      color:#163024;
+      background:linear-gradient(135deg, #bfe8d1, #8ed2aa);
+    }
+
+    .newsletter h2{
+      font-size:clamp(1.8rem, 4vw, 2.8rem);
+      margin-bottom:10px;
+    }
+
+    .newsletter p{
+      max-width:700px;
+      margin:0 auto 22px;
+      color:#24503a;
+    }
+
+    .newsletter .signup{
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .newsletter input{
+      min-width:min(100%, 320px);
+      padding:14px 16px;
+      border:none;
+      border-radius:999px;
+      outline:none;
+    }
+
+    .newsletter button{
+      background:#173221;
+      color:#fff;
+    }
+
+    footer{
+      padding:54px 20px;
+      border-top:1px solid rgba(47,125,91,.14);
+      background:#eef5ef;
+    }
+
+    .footer-content{
+      max-width:var(--max);
+      margin:0 auto;
+      grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .footer-content h2, .footer-content h3{color:var(--green);margin-bottom:12px}
+    .footer-content a, .footer-content p{color:var(--muted)}
+    .copyright{
+      max-width:var(--max);
+      margin:28px auto 0;
+      padding-top:20px;
+      border-top:1px solid rgba(0,0,0,.06);
+      text-align:center;
+      color:#72807a;
+      font-size:.95rem;
+    }
+
+    @media (max-width: 860px){
+      nav{display:none}
+      .contact-container{grid-template-columns:1fr}
+      section{padding:76px 16px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo">Legacy Foundation</div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#mission">Mission</a>
+        <a href="#programs">Programs</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Creating A Better Tomorrow</h1>
+        <p>Serving humanity with compassion, dignity, and responsibility.</p>
+        <a href="#contact" class="btn">Become A Partner</a>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <h2 class="section-title">Who We Are</h2>
+        <p class="section-lead">Legacy Foundation is a non-profit organization dedicated to improving lives through education, healthcare, environment protection, and community development.</p>
+        <div class="content-grid">
+          <article class="card">
+            <h3>Our History</h3>
+            <p>Founded with a vision to create meaningful social change and build stronger communities.</p>
+          </article>
+          <article class="card">
+            <h3>Our Approach</h3>
+            <p>We combine compassion, innovation, and teamwork to solve real-world problems.</p>
+          </article>
+          <article class="card">
+            <h3>Our Promise</h3>
+            <p>Transparency, dedication, and commitment toward society.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="mission">
+      <div class="container">
+        <h2 class="section-title">Mission & Vision</h2>
+        <div class="content-grid">
+          <article class="card">
+            <h3>Mission</h3>
+            <p>To empower underprivileged communities through education, healthcare, and sustainable development.</p>
+          </article>
+          <article class="card">
+            <h3>Vision</h3>
+            <p>A world where every person has equal opportunities to live with dignity.</p>
+          </article>
+          <article class="card">
+            <h3>Core Values</h3>
+            <p>Integrity • Humanity • Equality • Sustainability</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="programs">
+      <div class="container">
+        <h2 class="section-title">Our Major Programs</h2>
+        <div class="program-container">
+          <article class="program-card">
+            <div class="icon">📚</div>
+            <h3>Education For All</h3>
+            <p>Providing quality education, digital learning resources, scholarships, and skill development.</p>
+            <ul>
+              <li>Free learning material.</li>
+              <li>Digital education.</li>
+              <li>Career guidance.</li>
+            </ul>
+          </article>
+          <article class="program-card">
+            <div class="icon">🏥</div>
+            <h3>Healthcare Support</h3>
+            <p>Organizing medical camps, awareness programs, and essential healthcare support.</p>
+            <ul>
+              <li>Medical camps.</li>
+              <li>Health awareness.</li>
+              <li>Emergency support.</li>
+            </ul>
+          </article>
+          <article class="program-card">
+            <div class="icon">🌱</div>
+            <h3>Green Earth Initiative</h3>
+            <p>Working toward environmental protection through plantation drives and sustainable practices.</p>
+            <ul>
+              <li>Tree plantation.</li>
+              <li>Clean environment.</li>
+              <li>Waste management.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="impact">
+      <div class="container">
+        <h2 class="section-title">Our Impact</h2>
+        <div class="impact-container">
+          <div class="impact-box"><h1>25,000+</h1><p>Lives Transformed</p></div>
+          <div class="impact-box"><h1>500+</h1><p>Active Volunteers</p></div>
+          <div class="impact-box"><h1>150+</h1><p>Successful Projects</p></div>
+          <div class="impact-box"><h1>50+</h1><p>Communities Served</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2 class="section-title">Our Journey</h2>
+        <div class="timeline">
+          <article>
+            <span>2018</span>
+            <h3>Foundation Started</h3>
+            <p>Legacy Foundation was established with a vision to create positive social change.</p>
+          </article>
+          <article>
+            <span>2020</span>
+            <h3>Community Expansion</h3>
+            <p>Started education and healthcare programs in multiple communities.</p>
+          </article>
+          <article>
+            <span>2023</span>
+            <h3>National Recognition</h3>
+            <p>Expanded volunteer network and increased social impact.</p>
+          </article>
+          <article>
+            <span>2026</span>
+            <h3>Future Vision</h3>
+            <p>Building a stronger platform for sustainable development.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="donation-section">
+      <div class="container">
+        <h2 class="section-title">Support Our Mission</h2>
+        <div class="donation-cards">
+          <article class="card">
+            <h3>🌱 Basic Support</h3>
+            <h2>₹500</h2>
+            <p>Provides learning materials for children.</p>
+            <a href="#" class="gold-btn">Donate</a>
+          </article>
+          <article class="card">
+            <h3>⭐ Monthly Partner</h3>
+            <h2>₹2000</h2>
+            <p>Supports education and healthcare programs.</p>
+            <a href="#" class="gold-btn">Donate</a>
+          </article>
+          <article class="card">
+            <h3>🏆 Legacy Partner</h3>
+            <h2>₹5000+</h2>
+            <p>Helps build long-term community projects.</p>
+            <a href="#" class="gold-btn">Donate</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2 class="section-title">Why Become A Volunteer?</h2>
+        <div class="volunteer-box">
+          <div class="card"><h3>🤝 Make Impact</h3><p>Help create meaningful changes in people's lives.</p></div>
+          <div class="card"><h3>🌍 Build Community</h3><p>Connect with people working for a better world.</p></div>
+          <div class="card"><h3>💡 Learn Skills</h3><p>Develop leadership and teamwork abilities.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials">
+      <div class="container">
+        <h2 class="section-title">Voices Of Change</h2>
+        <div class="testimonial-box">
+          <article class="card"><p>"Legacy Foundation helped our village children continue their education. Their dedication is inspiring."</p><h3>— Community Member</h3></article>
+          <article class="card"><p>"Volunteering here gave me a purpose and taught me the true meaning of service."</p><h3>— Volunteer</h3></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <h2 class="section-title">Join Our Movement</h2>
+        <div class="contact-container">
+          <div class="contact-info">
+            <h3>Get In Touch</h3>
+            <p>📍 Address: New Delhi, India</p>
+            <p>📞 Phone: +91 98765 43210</p>
+            <p>✉ Email: contact@legacyfoundation.org</p>
+            <p>⏰ Working Hours: Monday - Saturday</p>
+          </div>
+
+          <form class="contact-form">
+            <label for="name">Full Name</label>
+            <input id="name" type="text" placeholder="Your Full Name" required>
+
+            <label for="email">Email Address</label>
+            <input id="email" type="email" placeholder="Email Address" required>
+
+            <label for="mobile">Mobile Number</label>
+            <input id="mobile" type="tel" placeholder="Mobile Number" required>
+
+            <label for="purpose">Purpose</label>
+            <select id="purpose" required>
+              <option value="">Select Purpose</option>
+              <option>Become Volunteer</option>
+              <option>Donation Inquiry</option>
+              <option>Partnership</option>
+            </select>
+
+            <label for="message">Message</label>
+            <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+
+            <button type="submit">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq">
+      <div class="container">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="content-grid">
+          <details class="card">
+            <summary>How can I support the NGO?</summary>
+            <p>You can support us through donations, volunteering, partnerships, or spreading awareness.</p>
+          </details>
+          <details class="card">
+            <summary>Where does donation money go?</summary>
+            <p>Every contribution is used for education, healthcare, community development, and social welfare programs.</p>
+          </details>
+          <details class="card">
+            <summary>Can students volunteer?</summary>
+            <p>Yes. Students can participate in campaigns, events, and awareness programs.</p>
+          </details>
+          <details class="card">
+            <summary>How can organizations partner with us?</summary>
+            <p>Companies and organizations can collaborate through CSR activities and community projects.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="newsletter">
+      <div class="container">
+        <h2>Stay Connected With Our Mission</h2>
+        <p>Subscribe to receive updates about our projects, events, and achievements.</p>
+        <div class="signup">
+          <input type="email" placeholder="Enter Email Address">
+          <button type="button">Subscribe</button>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-content">
+        <div>
+          <h2>LEGACY FOUNDATION</h2>
+          <p>Creating impact. Building hope. Changing lives.</p>
+        </div>
+        <div>
+          <h3>Quick Links</h3>
+          <a href="#about">About</a>
+          <a href="#programs">Programs</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div>
+          <h3>Follow Us</h3>
+          <p>Facebook</p>
+          <p>Instagram</p>
+          <p>LinkedIn</p>
+        </div>
+      </div>
+      <div class="copyright">© 2026 Legacy Foundation NGO | All Rights Reserved</div>
+    </footer>
+  </main>
+</body>
+</html>
